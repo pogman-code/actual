@@ -18,6 +18,7 @@ import {
   SelectedProvider,
   useSelected,
 } from '@desktop-client/hooks/useSelected';
+import { pushModal } from '@desktop-client/modals/modalsSlice';
 import {
   deleteAllTags,
   importTags,
@@ -98,6 +99,15 @@ export function ManageTags() {
           <Button variant="bare" onPress={() => dispatch(importTags())}>
             <SvgDownload width={10} height={10} style={{ marginRight: 3 }} />
             <Trans>Import existing tags</Trans>
+          </Button>
+          <Button
+            variant="bare"
+            onPress={() =>
+              dispatch(pushModal({ modal: { name: 'import-tags' } }))
+            }
+          >
+            <SvgDownload width={10} height={10} style={{ marginRight: 3 }} />
+            <Trans>Test</Trans>
           </Button>
           <View style={{ flex: 1 }} />
           <Search
