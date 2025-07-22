@@ -10,6 +10,7 @@ import { View } from '@actual-app/components/view';
 import { getNormalisedString } from 'loot-core/shared/normalisation';
 
 import { TagCreationRow } from './TagCreationRow';
+import { TagRow } from './TagRow';
 import { TagsHeader } from './TagsHeader';
 import { TagsList } from './TagsList';
 
@@ -126,6 +127,7 @@ export function ManageTags() {
             selectedItems={selectedInst.items}
             hoveredTag={hoveredTag}
             onHover={id => setHoveredTag(id ?? undefined)}
+            RowComponent={TagRow}
           />
         </View>
         <View

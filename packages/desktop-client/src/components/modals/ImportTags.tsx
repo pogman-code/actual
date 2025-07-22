@@ -13,6 +13,7 @@ import {
   ModalCloseButton,
   ModalHeader,
 } from '@desktop-client/components/common/Modal';
+import { ImportableTagRow } from '@desktop-client/components/tags/ImportableTagRow';
 import { TagsHeader } from '@desktop-client/components/tags/TagsHeader';
 import { TagsList } from '@desktop-client/components/tags/TagsList';
 import {
@@ -46,6 +47,7 @@ export function ImportTagsModal() {
                 selectedItems={selectedInst.items}
                 hoveredTag={hoveredTag}
                 onHover={id => setHoveredTag(id ?? undefined)}
+                RowComponent={ImportableTagRow}
               />
             </View>
           </SelectedProvider>

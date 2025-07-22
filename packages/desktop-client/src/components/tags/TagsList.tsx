@@ -2,7 +2,7 @@ import React from 'react';
 
 import { type Tag } from 'loot-core/types/models';
 
-import { TagRow } from './TagRow';
+import { type TagRow } from './TagRow';
 
 import { Table, useTableNavigator } from '@desktop-client/components/table';
 
@@ -11,6 +11,7 @@ type TagsListProps = {
   selectedItems: Set<string>;
   hoveredTag?: string;
   onHover: (id?: string) => void;
+  RowComponent: typeof TagRow;
 };
 
 export function TagsList({
@@ -18,6 +19,7 @@ export function TagsList({
   selectedItems,
   hoveredTag,
   onHover,
+  RowComponent,
 }: TagsListProps) {
   const tableNavigator = useTableNavigator(tags, [
     'select',
@@ -35,7 +37,7 @@ export function TagsList({
         const selected = selectedItems.has(tag.id);
 
         return (
-          <TagRow
+          <RowComponent
             key={tag.id}
             tag={tag}
             hovered={hovered}
