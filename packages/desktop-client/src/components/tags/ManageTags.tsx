@@ -12,6 +12,7 @@ import { View } from '@actual-app/components/view';
 import { getNormalisedString } from 'loot-core/shared/normalisation';
 
 import { TagCreationRow } from './TagCreationRow';
+import { TagRow } from './TagRow';
 import { TagsHeader } from './TagsHeader';
 import { TagsList } from './TagsList';
 
@@ -94,7 +95,11 @@ export function ManageTags() {
               dispatch(pushModal({ modal: { name: 'import-tags' } }))
             }
           >
-            <SvgDownload width={10} height={10} style={{ marginRight: 3 }} />
+            <SvgSearchAlternate
+              width={10}
+              height={10}
+              style={{ marginRight: 3 }}
+            />
             <Trans>Test</Trans>
           </Button>
           <View style={{ flex: 1 }} />
@@ -115,6 +120,7 @@ export function ManageTags() {
               selectedItems={selectedInst.items}
               hoveredTag={hoveredTag}
               onHover={id => setHoveredTag(id ?? undefined)}
+              RowComponent={TagRow}
             />
           ) : (
             <View
