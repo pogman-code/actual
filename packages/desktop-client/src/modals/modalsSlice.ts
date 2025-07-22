@@ -542,6 +542,9 @@ export type Modal =
     }
   | {
       name: 'category-automations-edit';
+    }
+  | {
+      name: 'import-tags';
     };
 
 type OpenAccountCloseModalPayload = {

@@ -20,6 +20,7 @@ import {
   SelectedProvider,
   useSelected,
 } from '@desktop-client/hooks/useSelected';
+import { pushModal } from '@desktop-client/modals/modalsSlice';
 import { deleteAllTags, findTags } from '@desktop-client/queries/queriesSlice';
 import { useDispatch } from '@desktop-client/redux';
 import { useTags } from '@desktop-client/style/tags';
@@ -86,6 +87,15 @@ export function ManageTags() {
               style={{ marginRight: 3 }}
             />
             <Trans>Find Existing Tags</Trans>
+          </Button>
+          <Button
+            variant="bare"
+            onPress={() =>
+              dispatch(pushModal({ modal: { name: 'import-tags' } }))
+            }
+          >
+            <SvgDownload width={10} height={10} style={{ marginRight: 3 }} />
+            <Trans>Test</Trans>
           </Button>
           <View style={{ flex: 1 }} />
           <Search
